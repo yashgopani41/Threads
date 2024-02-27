@@ -1,6 +1,5 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "../../components/ui/button";
@@ -15,7 +14,6 @@ import {
   FormMessage,
 } from "../../components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserValidation } from "../../lib/validation/user";
 import { useRouter, usePathname } from "next/navigation";
 import { ThreadValidation } from "../../lib/validation/threads";
 
