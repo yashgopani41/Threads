@@ -128,7 +128,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     />
                   ) : (
                     <Image
-                      src="./assets/profile.svg"
+                      src="/assets/profile.svg"
                       alt="profile photo"
                       width={24}
                       height={24}

@@ -12,8 +12,6 @@ connectToDB();
 
 export async function fetchUser(userId: string) {
   try {
-    // // connectToDB();
-
     return await User.findOne({ id: userId }).populate({
       path: "communities",
       model: Community,
@@ -41,8 +39,6 @@ export async function updateUser({
   image,
 }: Params): Promise<void> {
   try {
-    // connectToDB();
-
     await User.findOneAndUpdate(
       { id: userId },
       {
@@ -65,8 +61,6 @@ export async function updateUser({
 
 export async function fetchUserPosts(userId: string) {
   try {
-    // connectToDB();
-
     // Find all threads authored by the user with the given userId
     const threads = await User.findOne({ id: userId }).populate({
       path: "threads",
@@ -110,8 +104,6 @@ export async function fetchUsers({
   sortBy?: SortOrder;
 }) {
   try {
-    // connectToDB();
-
     // Calculate the number of users to skip based on the page number and page size.
     const skipAmount = (pageNumber - 1) * pageSize;
 
@@ -156,13 +148,11 @@ export async function fetchUsers({
 
 export async function getActivity(userId: string) {
   try {
-    // connectToDB();
-
     // Find all threads created by the user
     const userThreads = await Thread.find({ author: userId });
 
     // Collect all the child thread ids (replies) from the 'children' field of each user thread
-    const childThreadIds = userThreads.reduce(({ acc, userThread }: any) => {
+    const childThreadIds = userThreads.reduce((acc, userThread: any) => {
       return acc.concat(userThread.children);
     }, []);
 
