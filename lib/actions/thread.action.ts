@@ -3,12 +3,12 @@
 import { revalidatePath } from "next/cache";
 
 import { connectToDB } from "../mongoose";
-
 import { User } from "../models/user.model";
 import { Thread } from "../models/thread.models";
 import Community from "../models/community.models";
 
 connectToDB();
+
 export async function fetchPosts(pageNumber = 1, pageSize = 20) {
   // Calculate the number of posts to skip based on the page number and page size.
   const skipAmount = (pageNumber - 1) * pageSize;
@@ -61,7 +61,6 @@ export async function createThread({
   path,
 }: Params) {
   try {
-    console.log("fesffs");
     const communityIdObject = await Community.findOne(
       { id: communityId },
       { _id: 1 }
@@ -70,7 +69,7 @@ export async function createThread({
     const createdThread = await Thread.create({
       text,
       author,
-      community: communityIdObject, // Assign communityId if provided, or leave it null for personal account
+      community: communityIdObject, // Assign communityId if provided, or leave it null forpersonal account
     });
 
     // Update User model

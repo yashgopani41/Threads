@@ -39,7 +39,6 @@ function PostThread({ userId }: Props) {
   });
 
   const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-    debugger;
     await createThread({
       text: values.thread,
       author: userId,
@@ -54,7 +53,7 @@ function PostThread({ userId }: Props) {
     <Form {...form}>
       <form
         className="mt-10 flex flex-col justify-start gap-10"
-        onSubmit={form.handleSubmit(onSubmit, onSubmit)}
+        onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField
           control={form.control}

@@ -38,11 +38,11 @@ async function Home({
                 id={post._id}
                 currentUserId={user.id}
                 parentId={post.parentId}
-                content={post.text}
+                content={post?.text}
                 author={post.author}
-                community={post.community}
+                community={post?.community}
                 createdAt={post.createdAt}
-                comments={post.children}
+                comments={post?.children}
               />
             ))}
           </>

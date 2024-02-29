@@ -12,10 +12,12 @@ connectToDB();
 
 export async function fetchUser(userId: string) {
   try {
-    return await User.findOne({ id: userId }).populate({
+    const user = await User.findOne({ id: userId }).populate({
       path: "communities",
       model: Community,
     });
+    // Convert Mongoose document to plain JavaScript object
+    return user ? user : null;
   } catch (error: any) {
     throw new Error(`Failed to fetch user: ${error.message}`);
   }
