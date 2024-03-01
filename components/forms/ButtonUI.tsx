@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 interface Props {
@@ -8,9 +8,8 @@ interface Props {
   comments: any;
 }
 
-const ButtonUI = ({ isComment, comments, id }: Props) => {
-  const [expandComment, setExpandComment] = React.useState(false);
-  console.log("🚀 ~ ButtonUI ~ comments:", comments);
+export const ButtonUI = ({ isComment, comments, id }: Props) => {
+  const [expandComment, setExpandComment] = useState(false);
 
   return (
     <>
@@ -42,9 +41,3 @@ const ButtonUI = ({ isComment, comments, id }: Props) => {
     </>
   );
 };
-export default ButtonUI;
-// function ButtonUI({ isComment, comments, id }: any) {
-//   return <>hello</>;
-// }
-
-// export default ButtonUI;
