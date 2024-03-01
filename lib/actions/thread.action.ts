@@ -222,7 +222,7 @@ export async function addCommentToThread(
     const savedCommentThread = await commentThread.save();
 
     // Add the comment thread's ID to the original thread's children array
-    originalThread.children.push(savedCommentThread._id);
+    originalThread.children.push(savedCommentThread?._id);
 
     // Save the updated original thread to the database
     await originalThread.save();
